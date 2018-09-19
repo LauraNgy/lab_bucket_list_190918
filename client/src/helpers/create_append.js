@@ -1,8 +1,9 @@
-const CreateAppend = function (tagName, text, parentNode) {
+const CreateAppend = function (tagName, parentNode, value) {
+
 const newElem =  document.createElement(tagName);
-newElem.textContent = text;
-parentNode.appendChild(newElem);
-return newElem;
+  newElem.value = value;
+  parentNode.appendChild(newElem);
+  return newElem;
 };
 
 module.exports = CreateAppend;

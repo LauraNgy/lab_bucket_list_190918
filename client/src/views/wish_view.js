@@ -7,12 +7,35 @@ const WishView = function (wish, parent) {
 };
 
 WishView.prototype.render = function () {
-  const wishDiv = new CreateAppend("div", "", this.parent);
-  const wishName = new CreateAppend("h3", this.wish.name, wishDiv);
-  const wishDeadline = new CreateAppend("p", `Achieve by: ${this.wish.deadline}`, wishDiv);
-  const wishPriority = new CreateAppend("p", `Priority: ${this.wish.priority}`, wishDiv);
+  const wishDiv = new CreateAppend("form", this.parent, "");
+  const nameLabel = new CreateAppend("label", wishDiv, "");
+  nameLabel.textContent = "Name";
+  nameLabel.classList.add('wishName');
+  const wishName = new CreateAppend("input", wishDiv, this.wish.name);
+  const deadlineLabel = new CreateAppend("label", wishDiv, "");
+  deadlineLabel.textContent = "Deadline:";
+  deadlineLabel.classList.add('wishDetail');
+  const wishDeadline = new CreateAppend("input", wishDiv, this.wish.deadline);
+  const priorityLabel = new CreateAppend("label", wishDiv, "");
+  priorityLabel.textContent = "Priority:";
+  priorityLabel.classList.add('wishDetail');
+  const wishPriority = new CreateAppend("input", wishDiv, this.wish.priority);
   //add classList for priority levels
-  const wishAchieved = new CreateAppend("p", `Achieved? ${this.wish.achieved}`, wishDiv);
+  const wishAchieved = new CreateAppend("select", wishDiv, this.wish.achieved);
+  wishAchieved.classList.add('wishDetail');
+  const wishYes = new CreateAppend("option", wishAchieved, "Yes");
+  wishYes.textContent = "Yes";
+  const wishNo = new CreateAppend("option", wishAchieved, "No");
+  wishNo.textContent = "No";
+  wishNo.selected = true;
+  const updateBttn = new CreateAppend("input", wishDiv, "Update");
+  updateBttn.type = "submit";
+  
+  console.log(this.wish._id);
+  wishDiv.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+    console.log(evt);
+  });
 };
 
 module.exports = WishView;

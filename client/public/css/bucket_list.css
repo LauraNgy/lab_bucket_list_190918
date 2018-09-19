@@ -1,0 +1,14 @@
+#wishes-view > form {
+  border: solid 1px black;
+  padding: 1em;
+  margin: 1em auto;
+  width: 80%;
+}
+
+.wishName {
+  font-size: 1.3em;
+}
+
+.wishDetail {
+  font-size: 1.1em;
+}
