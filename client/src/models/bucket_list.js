@@ -14,6 +14,19 @@ BucketList.prototype.bindEvents = function () {
       PubSub.publish('BucketList:all-wishes', evt);
     });
   });
+  PubSub.subscribe('WishView:wish-updated', (evt) => {
+    const wishDetail = evt.detail;
+    this.request.put(wishDetail)
+    .then( (evt) => {
+      PubSub.publish('BucketList:all-wishes', evt);
+    });
+  });
+  PubSub.subscribe('WishView:wish-deleted', (evt) => {
+    this.request.delete(evt.detail)
+    .then( (evt) => {
+      PubSub.publish('BucketList:all-wishes', evt);
+    });
+  });
 };
 
 BucketList.prototype.getData = function () {

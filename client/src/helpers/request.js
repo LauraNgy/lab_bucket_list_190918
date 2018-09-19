@@ -16,6 +16,14 @@ Request.prototype.post = function (payload) {
    .then((response) => response.json());
 };
 
+Request.prototype.put = function (payload) {
+  return fetch(`${this.url}/${payload._id}`, {
+    method: 'PUT',
+    body: JSON.stringify(payload.wish)
+  })
+  .then ((response) => response.json());
+};
+
 Request.prototype.delete = function (id) {
  return fetch(`${this.url}/${id}`, {
    method: 'DELETE'
