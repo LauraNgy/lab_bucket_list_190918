@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="./js/bundle.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/bucket_list.css">
+    <title>Bucket List</title>
+  </head>
+  <body>
+    <header>
+      <h1>Bucket List</h1>
+    </header>
+    <div id="wrapper">
+      <div>
+        <h2>Add a wish</h2>
+        <form id="wishes-form">
+          <label for="name">Name: </label>
+          <input type="text" id="name">
+          <label for="deadline">Deadline date :</label>
+          <input type="date" id="deadline">
+          <label for="priority">Priority: </label>
+          <select name="priority" id="priority">
+            <option value="Low" id="priority-low">Low</option>
+            <option value="Medium" id="priority-medium">Medium</option>
+            <option value="High" id="priority-high">High</option>
+          </select>
+          <input type="submit" value="Add New Wish">
+        </form>
+        </div>
+        <div>
+          <h2>Wishes List</h2>
+          <div id="wishes-view">
+
+          </div>
+        </div>
+    </div>
+  </body>
+</html>
